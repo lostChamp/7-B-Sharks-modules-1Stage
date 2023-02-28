@@ -127,7 +127,6 @@ export class opWithNumbers {
         }
 
         result = secondNum;
-        console.log(result);
 
         while(firstNum > 1) {
             result = this.sum(result, secondNum);
