@@ -1,9 +1,7 @@
-import * as http from "http";
-import {filmController} from "./controllers/film.contoroller.js";
+import * as http from 'http';
 import {forController} from "./controllers/method.controller.js";
 
 const port = 8080;
-const films = new filmController();
 
 const server = http.createServer((req, res) => {
     const { method, url } = req;

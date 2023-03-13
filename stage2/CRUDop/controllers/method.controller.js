@@ -8,11 +8,11 @@ export function forController(reqMethodAndUrl) {
         case 'GET':
             if(reqMethodAndUrl.url === "/film") {
                 films.getFilms(reqMethodAndUrl);
-            }else if(reqMethodAndUrl === "/film:id") {
+            }else if(/\/film:\d/.test(reqMethodAndUrl.url)) {
                 films.getOneFilm(reqMethodAndUrl);
             }else if(reqMethodAndUrl.url === "/genre") {
                 genre.getGenres(reqMethodAndUrl);
-            }else if(reqMethodAndUrl.url === "/genre:id") {
+            }else if(/\/genre:\d/.test(reqMethodAndUrl.url)) {
                 genre.getOneGenre(reqMethodAndUrl);
             }
             break;
@@ -31,11 +31,13 @@ export function forController(reqMethodAndUrl) {
             }
             break;
         case 'DELETE':
-            if(reqMethodAndUrl.url === "/film") {
+            if(/\/film:\d/.test(reqMethodAndUrl.url)) {
                 films.deleteFilm(reqMethodAndUrl);
-            }else if(reqMethodAndUrl.url === "/genre") {
+            }else if(/\/genre:\d/.test(reqMethodAndUrl.url)) {
                 genre.deleteGenre(reqMethodAndUrl);
             }
+            break;
+        default:
             break;
     }
 }
