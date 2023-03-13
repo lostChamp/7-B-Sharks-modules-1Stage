@@ -12,5 +12,8 @@
     "CRUD"
   ],
   "author": "Konstantin Kondyurin",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "pg": "^8.10.0"
+  }
 }
