@@ -24,11 +24,15 @@ export function forController(reqMethodAndUrl) {
         case 'PUT':
             if(reqMethodAndUrl.url === "/film") {
                 films.updateFilm(reqMethodAndUrl);
+            }else if(reqMethodAndUrl.url === "/genre") {
+                genre.updateGenre(reqMethodAndUrl);
             }
             break;
         case 'DELETE':
             if(/\/film:\d/.test(reqMethodAndUrl.url)) {
                 films.deleteFilm(reqMethodAndUrl);
+            }else if(/\/genre:\d/.test(reqMethodAndUrl.url)) {
+                genre.deleteGenre(reqMethodAndUrl);
             }
             break;
         default:

@@ -16,4 +16,22 @@ export class genreController {
 
         console.log(genres.rows);
     }
+
+    async updateGenre(req, res) {
+        const {id, name_genre, film_id} = JSON.parse(req.body);
+
+        const upGenre = await db.query(`UPDATE genre SET name_genre = $1, film_id = $2 where id = $3`, [name_genre, film_id, id]);
+
+        console.log(upGenre.rows);
+    }
+
+    async deleteGenre(req, res) {
+        const splitUrl = req.url.split("/");
+        const takeLastInUrl = splitUrl[splitUrl.length - 1].split(":");
+        const id = Number(takeLastInUrl[takeLastInUrl.length - 1]);
+
+        const delGenre = await db.query(`DELETE FROM genre WHERE id = $1`, [id]);
+
+        console.log(delGenre.rows);
+    }
 }
