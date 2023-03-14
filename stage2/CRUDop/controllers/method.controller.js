@@ -11,9 +11,7 @@ export function forController(reqMethodAndUrl) {
             }else if(/\/film:\d/.test(reqMethodAndUrl.url)) {
                 films.getOneFilm(reqMethodAndUrl);
             }else if(reqMethodAndUrl.url === "/genre") {
-                genre.getGenres(reqMethodAndUrl);
-            }else if(/\/genre:\d/.test(reqMethodAndUrl.url)) {
-                genre.getOneGenre(reqMethodAndUrl);
+                genre.getGenresByFilm(reqMethodAndUrl);
             }
             break;
         case 'POST':
@@ -26,15 +24,11 @@ export function forController(reqMethodAndUrl) {
         case 'PUT':
             if(reqMethodAndUrl.url === "/film") {
                 films.updateFilm(reqMethodAndUrl);
-            }else if(reqMethodAndUrl.url === "/genre") {
-                genre.updateGenre(reqMethodAndUrl);
             }
             break;
         case 'DELETE':
             if(/\/film:\d/.test(reqMethodAndUrl.url)) {
                 films.deleteFilm(reqMethodAndUrl);
-            }else if(/\/genre:\d/.test(reqMethodAndUrl.url)) {
-                genre.deleteGenre(reqMethodAndUrl);
             }
             break;
         default:
